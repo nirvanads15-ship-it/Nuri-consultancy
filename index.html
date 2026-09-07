@@ -41,7 +41,7 @@
             <div class="flex items-center gap-6">
                 <div class="hidden md:flex items-center gap-2.5 text-xs text-zinc-400 font-mono">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span>COHORT Q4: RESTRICTED CAPACITY</span>
+                    <span>LIMITED CAPACITY</span>
                 </div>
                 <button @click="openModal()" class="bg-indigo-950 border border-indigo-500/40 text-indigo-100 font-medium text-[11px] px-5 py-2.5 tracking-[0.15em] hover:bg-indigo-900 transition-colors uppercase">
                     Intake Application
@@ -57,15 +57,16 @@
                 </div>
                 
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-950/40 border border-indigo-500/20 text-[10px] tracking-widest text-indigo-300 uppercase font-mono">
-                    <span>Structural Cognitive Engineering</span>
+                    <span>Cognitive Performance Consultancy</span>
                 </div>
                 
                 <h2 class="text-3xl md:text-5xl font-normal tracking-tight text-white leading-[1.15]">
                     Most Executives don’t fail from a lack of strategy. They fail because their internal architecture degrades under high-stakes pressure.
                 </h2>
-                <p class="text-base md:text-lg text-zinc-400 font-light max-w-2xl mx-auto leading-relaxed">
-                    We engineer the cognitive infrastructure required to dominate their industry. Precision over noise. Private and Confidential.
-                </p>
+                <div class="text-base md:text-lg text-zinc-400 font-light max-w-2xl mx-auto leading-relaxed space-y-1">
+                    <p>We give you the cognitive infrastructure required to dominate your industry. Precision over noise.</p>
+                    <p class="text-indigo-300 font-medium tracking-wide">Private and Confidential.</p>
+                </div>
                 <div class="pt-4">
                     <button @click="openModal()" class="border border-indigo-500/30 hover:border-indigo-400 text-white font-normal text-[11px] px-8 py-4 tracking-[0.2em] uppercase transition-all bg-surface">
                         Initiate Application
@@ -101,7 +102,7 @@
                 <div x-show="!submitted">
                     <div class="space-y-1.5 mb-6">
                         <span class="text-[9px] tracking-[0.2em] text-indigo-400 font-mono">CONFIDENTIAL FILE // 04</span>
-                        <h3 class="text-base font-medium text-white tracking-wide">Executive Dossier Intake</h3>
+                        <h3 class="text-base font-medium text-white tracking-wide">Executive Intake</h3>
                     </div>
 
                     <form @submit.prevent="submitForm" class="space-y-4">
@@ -134,7 +135,7 @@
                             </div>
                         </div>
                         <button type="submit" class="w-full bg-indigo-950 border border-indigo-500/40 text-indigo-100 font-medium text-[11px] py-3.5 tracking-[0.2em] uppercase hover:bg-indigo-900 transition-colors mt-4">
-                            Transmit Dossier
+                            Submit Application
                         </button>
                     </form>
                 </div>
