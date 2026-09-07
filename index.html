@@ -15,7 +15,6 @@
                         obsidian: '#020308',
                         surface: '#070913',
                         bordercolor: '#1a2035',
-                        navyaccent: '#1e294b',
                         platinum: '#e2e8f0'
                     }
                 }
@@ -24,9 +23,6 @@
     </script>
     <style>
         body { background-color: #020308; color: #f4f4f5; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; }
-        .logo-emblem {
-            box-shadow: 0 0 25px rgba(30, 41, 75, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.05);
-        }
     </style>
 </head>
 <body x-data="app()" x-init="init()" class="min-h-screen flex flex-col justify-between selection:bg-indigo-950 selection:text-white">
@@ -36,11 +32,7 @@
         <!-- Navigation -->
         <header class="max-w-6xl mx-auto px-6 h-24 flex items-center justify-between border-b border-bordercolor">
             <div class="flex items-center gap-4">
-                <!-- Circular Logo Crest Representation -->
-                <div class="w-11 h-11 rounded-full bg-gradient-to-b from-slate-800 to-obsidian border border-indigo-500/30 flex items-center justify-center logo-emblem overflow-hidden relative">
-                    <div class="absolute inset-0 bg-indigo-950/20"></div>
-                    <span class="font-bold text-xs tracking-wider text-indigo-200 z-10 font-mono">NR</span>
-                </div>
+                <img src="Untitled design.png" alt="Nuri Co. Crest" class="w-12 h-12 rounded-full object-cover border border-indigo-500/40 shadow-lg shadow-indigo-950/50">
                 <div>
                     <h1 class="font-bold tracking-[0.25em] text-sm text-white">NURI CO.</h1>
                     <p class="text-[9px] tracking-[0.3em] text-indigo-300/60 uppercase mt-0.5">Private Advisory</p>
@@ -58,18 +50,23 @@
         </header>
 
         <!-- Hero Section -->
-        <main class="max-w-4xl mx-auto px-6 pt-28 pb-20">
-            <div class="space-y-8">
+        <main class="max-w-4xl mx-auto px-6 pt-24 pb-20">
+            <div class="text-center space-y-8 max-w-3xl mx-auto">
+                <div class="flex justify-center mb-6">
+                    <img src="Untitled design.png" alt="Nuri Co. Crest" class="w-24 h-24 rounded-full object-cover border-2 border-indigo-500/40 shadow-2xl shadow-indigo-950/80">
+                </div>
+                
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-950/40 border border-indigo-500/20 text-[10px] tracking-widest text-indigo-300 uppercase font-mono">
                     <span>Structural Cognitive Engineering</span>
                 </div>
+                
                 <h2 class="text-3xl md:text-5xl font-normal tracking-tight text-white leading-[1.15]">
                     Most Executives don’t fail from a lack of strategy. They fail because their internal architecture degrades under high-stakes pressure.
                 </h2>
-                <p class="text-base md:text-lg text-zinc-400 font-light max-w-2xl leading-relaxed">
+                <p class="text-base md:text-lg text-zinc-400 font-light max-w-2xl mx-auto leading-relaxed">
                     We engineer the cognitive infrastructure required to dominate their industry. Precision over noise. Private and Confidential.
                 </p>
-                <div class="pt-2">
+                <div class="pt-4">
                     <button @click="openModal()" class="border border-indigo-500/30 hover:border-indigo-400 text-white font-normal text-[11px] px-8 py-4 tracking-[0.2em] uppercase transition-all bg-surface">
                         Initiate Application
                     </button>
@@ -79,19 +76,16 @@
             <!-- Pillars -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-36 border-t border-bordercolor pt-16">
                 <div class="p-6 bg-surface border border-bordercolor space-y-3 relative overflow-hidden group hover:border-indigo-500/40 transition-colors">
-                    <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <span class="text-[9px] tracking-[0.2em] text-indigo-400/80 font-mono">01 // ARCHITECTURE</span>
                     <h3 class="text-white font-medium text-xs tracking-wide">Executive Function</h3>
                     <p class="text-xs text-zinc-400 leading-relaxed font-light">Maintaining high-leverage cognitive bandwidth under extreme load.</p>
                 </div>
                 <div class="p-6 bg-surface border border-bordercolor space-y-3 relative overflow-hidden group hover:border-indigo-500/40 transition-colors">
-                    <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <span class="text-[9px] tracking-[0.2em] text-indigo-400/80 font-mono">02 // REGULATION</span>
                     <h3 class="text-white font-medium text-xs tracking-wide">Emotional Neutralization</h3>
                     <p class="text-xs text-zinc-400 leading-relaxed font-light">Removing reactive decision-making patterns during market volatility.</p>
                 </div>
                 <div class="p-6 bg-surface border border-bordercolor space-y-3 relative overflow-hidden group hover:border-indigo-500/40 transition-colors">
-                    <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <span class="text-[9px] tracking-[0.2em] text-indigo-400/80 font-mono">03 // FRAMEWORK</span>
                     <h3 class="text-white font-medium text-xs tracking-wide">Decision Architecture</h3>
                     <p class="text-xs text-zinc-400 leading-relaxed font-light">Constructing deterministic frameworks for high-stakes decisions.</p>
@@ -101,7 +95,7 @@
 
         <!-- Modal -->
         <div x-show="showModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md p-4" x-cloak>
-            <div class="bg-surface border border-indigo-500/30 w-full max-w-lg p-8 relative space-y-6 logo-emblem">
+            <div class="bg-surface border border-indigo-500/30 w-full max-w-lg p-8 relative space-y-6 shadow-2xl">
                 <button @click="showModal = false" class="absolute top-6 right-6 text-zinc-500 hover:text-white text-xs">✕</button>
                 
                 <div x-show="!submitted">
