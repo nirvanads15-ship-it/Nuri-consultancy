@@ -142,7 +142,7 @@
 
                 <div x-show="submitted" class="py-12 text-center space-y-4">
                     <div class="w-8 h-8 border border-emerald-500 text-emerald-500 flex items-center justify-center mx-auto text-xs font-mono">✓</div>
-                    <p class="text-xs text-zinc-200 tracking-wide font-light">Application recieved. Our office will initiate contact within 48 hours.</p>
+                    <p class="text-xs text-zinc-200 tracking-wide font-light">Application received. Our office will initiate contact within 48 hours.</p>
                     <button @click="showModal = false; submitted = false;" class="text-[9px] tracking-[0.2em] text-zinc-500 uppercase underline pt-4">Close Window</button>
                 </div>
             </div>
@@ -262,18 +262,31 @@
                 submitted: false,
                 form: { name: '', company: '', scale: '$1M - $5M', email: '', phone: '' },
                 selectedApp: null,
-                applications: [
-                    { id: 1, date: '2026-09-07', name: 'A. Sterling', company: 'Vanguard Capital', scale: '$5M - $20M', email: 'asterling@vanguard.cap', phone: '+1 (555) 019-2834', status: 'Pending' },
-                    { id: 2, date: '2026-09-06', name: 'M. Vance', company: 'Apex Logistics', scale: '$20M+', email: 'm.vance@apexlogistics.io', phone: '+1 (555) 847-1902', status: 'Approved' }
-                ],
+                applications: [],
                 init() {
                     this.isAdmin = window.location.hash === '#admin';
                     window.addEventListener('hashchange', () => {
                         this.isAdmin = window.location.hash === '#admin';
                     });
+
+                    // Load saved submissions from browser storage or use defaults if empty
+                    const saved = localStorage.getItem('nuri_applications');
+                    if (saved) {
+                        this.applications = JSON.parse(saved);
+                    } else {
+                        this.applications = [
+                            { id: 1, date: '2026-09-07', name: 'A. Sterling', company: 'Vanguard Capital', scale: '$5M - $20M', email: 'asterling@vanguard.cap', phone: '+1 (555) 019-2834', status: 'Pending' },
+                            { id: 2, date: '2026-09-06', name: 'M. Vance', company: 'Apex Logistics', scale: '$20M+', email: 'm.vance@apexlogistics.io', phone: '+1 (555) 847-1902', status: 'Approved' }
+                        ];
+                        localStorage.setItem('nuri_applications', JSON.stringify(this.applications));
+                    }
+
                     if (this.applications.length > 0) {
                         this.selectedApp = this.applications[0];
                     }
+                },
+                saveToStorage() {
+                    localStorage.setItem('nuri_applications', JSON.stringify(this.applications));
                 },
                 openModal() {
                     this.showModal = true;
@@ -293,11 +306,15 @@
                     };
                     this.applications.unshift(newEntry);
                     this.selectedApp = newEntry;
+                    this.saveToStorage();
                     this.submitted = true;
                 },
                 updateStatus(id, status) {
                     let target = this.applications.find(a => a.id === id);
-                    if (target) target.status = status;
+                    if (target) {
+                        target.status = status;
+                        this.saveToStorage();
+                    }
                 }
             }
         }
