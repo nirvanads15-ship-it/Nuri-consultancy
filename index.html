@@ -12,35 +12,46 @@
             theme: {
                 extend: {
                     colors: {
-                        obsidian: '#030305',
-                        surface: '#0a0a0e',
-                        bordercolor: '#22222b',
-                        platinum: '#f4f4f5'
+                        obsidian: '#020308',
+                        surface: '#070913',
+                        bordercolor: '#1a2035',
+                        navyaccent: '#1e294b',
+                        platinum: '#e2e8f0'
                     }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #030305; color: #f4f4f5; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; }
+        body { background-color: #020308; color: #f4f4f5; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; }
+        .logo-emblem {
+            box-shadow: 0 0 25px rgba(30, 41, 75, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.05);
+        }
     </style>
 </head>
-<body x-data="app()" class="min-h-screen flex flex-col justify-between selection:bg-zinc-800 selection:text-white">
+<body x-data="app()" x-init="init()" class="min-h-screen flex flex-col justify-between selection:bg-indigo-950 selection:text-white">
 
     <!-- PUBLIC VIEW -->
     <div x-show="!isAdmin">
         <!-- Navigation -->
         <header class="max-w-6xl mx-auto px-6 h-24 flex items-center justify-between border-b border-bordercolor">
-            <div>
-                <h1 class="font-bold tracking-[0.25em] text-sm text-white">NURI CO.</h1>
-                <p class="text-[9px] tracking-[0.3em] text-zinc-500 uppercase mt-0.5">Private Advisory</p>
+            <div class="flex items-center gap-4">
+                <!-- Circular Logo Crest Representation -->
+                <div class="w-11 h-11 rounded-full bg-gradient-to-b from-slate-800 to-obsidian border border-indigo-500/30 flex items-center justify-center logo-emblem overflow-hidden relative">
+                    <div class="absolute inset-0 bg-indigo-950/20"></div>
+                    <span class="font-bold text-xs tracking-wider text-indigo-200 z-10 font-mono">NR</span>
+                </div>
+                <div>
+                    <h1 class="font-bold tracking-[0.25em] text-sm text-white">NURI CO.</h1>
+                    <p class="text-[9px] tracking-[0.3em] text-indigo-300/60 uppercase mt-0.5">Private Advisory</p>
+                </div>
             </div>
             <div class="flex items-center gap-6">
                 <div class="hidden md:flex items-center gap-2.5 text-xs text-zinc-400 font-mono">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                     <span>COHORT Q4: RESTRICTED CAPACITY</span>
                 </div>
-                <button @click="openModal()" class="bg-white text-black font-medium text-[11px] px-5 py-2.5 tracking-[0.15em] hover:bg-zinc-200 transition-colors uppercase">
+                <button @click="openModal()" class="bg-indigo-950 border border-indigo-500/40 text-indigo-100 font-medium text-[11px] px-5 py-2.5 tracking-[0.15em] hover:bg-indigo-900 transition-colors uppercase">
                     Intake Application
                 </button>
             </div>
@@ -49,6 +60,9 @@
         <!-- Hero Section -->
         <main class="max-w-4xl mx-auto px-6 pt-28 pb-20">
             <div class="space-y-8">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-950/40 border border-indigo-500/20 text-[10px] tracking-widest text-indigo-300 uppercase font-mono">
+                    <span>Structural Cognitive Engineering</span>
+                </div>
                 <h2 class="text-3xl md:text-5xl font-normal tracking-tight text-white leading-[1.15]">
                     Most Executives don’t fail from a lack of strategy. They fail because their internal architecture degrades under high-stakes pressure.
                 </h2>
@@ -56,7 +70,7 @@
                     We engineer the cognitive infrastructure required to dominate their industry. Precision over noise. Private and Confidential.
                 </p>
                 <div class="pt-2">
-                    <button @click="openModal()" class="border border-zinc-700 hover:border-white text-white font-normal text-[11px] px-8 py-4 tracking-[0.2em] uppercase transition-all">
+                    <button @click="openModal()" class="border border-indigo-500/30 hover:border-indigo-400 text-white font-normal text-[11px] px-8 py-4 tracking-[0.2em] uppercase transition-all bg-surface">
                         Initiate Application
                     </button>
                 </div>
@@ -64,18 +78,21 @@
 
             <!-- Pillars -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-36 border-t border-bordercolor pt-16">
-                <div class="p-6 bg-surface border border-bordercolor space-y-3">
-                    <span class="text-[9px] tracking-[0.2em] text-zinc-500 font-mono">01 // PILLAR</span>
+                <div class="p-6 bg-surface border border-bordercolor space-y-3 relative overflow-hidden group hover:border-indigo-500/40 transition-colors">
+                    <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="text-[9px] tracking-[0.2em] text-indigo-400/80 font-mono">01 // ARCHITECTURE</span>
                     <h3 class="text-white font-medium text-xs tracking-wide">Executive Function</h3>
                     <p class="text-xs text-zinc-400 leading-relaxed font-light">Maintaining high-leverage cognitive bandwidth under extreme load.</p>
                 </div>
-                <div class="p-6 bg-surface border border-bordercolor space-y-3">
-                    <span class="text-[9px] tracking-[0.2em] text-zinc-500 font-mono">02 // PILLAR</span>
-                    <h3 class="text-white font-medium text-xs tracking-wide">Emotional Regulation</h3>
+                <div class="p-6 bg-surface border border-bordercolor space-y-3 relative overflow-hidden group hover:border-indigo-500/40 transition-colors">
+                    <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="text-[9px] tracking-[0.2em] text-indigo-400/80 font-mono">02 // REGULATION</span>
+                    <h3 class="text-white font-medium text-xs tracking-wide">Emotional Neutralization</h3>
                     <p class="text-xs text-zinc-400 leading-relaxed font-light">Removing reactive decision-making patterns during market volatility.</p>
                 </div>
-                <div class="p-6 bg-surface border border-bordercolor space-y-3">
-                    <span class="text-[9px] tracking-[0.2em] text-zinc-500 font-mono">03 // PILLAR</span>
+                <div class="p-6 bg-surface border border-bordercolor space-y-3 relative overflow-hidden group hover:border-indigo-500/40 transition-colors">
+                    <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="text-[9px] tracking-[0.2em] text-indigo-400/80 font-mono">03 // FRAMEWORK</span>
                     <h3 class="text-white font-medium text-xs tracking-wide">Decision Architecture</h3>
                     <p class="text-xs text-zinc-400 leading-relaxed font-light">Constructing deterministic frameworks for high-stakes decisions.</p>
                 </div>
@@ -84,27 +101,27 @@
 
         <!-- Modal -->
         <div x-show="showModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md p-4" x-cloak>
-            <div class="bg-surface border border-bordercolor w-full max-w-lg p-8 relative space-y-6">
+            <div class="bg-surface border border-indigo-500/30 w-full max-w-lg p-8 relative space-y-6 logo-emblem">
                 <button @click="showModal = false" class="absolute top-6 right-6 text-zinc-500 hover:text-white text-xs">✕</button>
                 
                 <div x-show="!submitted">
                     <div class="space-y-1.5 mb-6">
-                        <span class="text-[9px] tracking-[0.2em] text-zinc-500 font-mono">CONFIDENTIAL FILE // 04</span>
+                        <span class="text-[9px] tracking-[0.2em] text-indigo-400 font-mono">CONFIDENTIAL FILE // 04</span>
                         <h3 class="text-base font-medium text-white tracking-wide">Executive Dossier Intake</h3>
                     </div>
 
                     <form @submit.prevent="submitForm" class="space-y-4">
                         <div>
                             <label class="block text-[9px] tracking-[0.2em] text-zinc-400 uppercase mb-2">Full Name & Title</label>
-                            <input type="text" x-model="form.name" required placeholder="e.g., Jonathan Vance, CEO" class="w-full bg-obsidian border border-bordercolor p-3 text-xs text-white placeholder-zinc-700 focus:outline-none focus:border-zinc-500">
+                            <input type="text" x-model="form.name" required placeholder="e.g., Jonathan Vance, CEO" class="w-full bg-obsidian border border-bordercolor p-3 text-xs text-white placeholder-zinc-700 focus:outline-none focus:border-indigo-500">
                         </div>
                         <div>
                             <label class="block text-[9px] tracking-[0.2em] text-zinc-400 uppercase mb-2">Organization / Enterprise</label>
-                            <input type="text" x-model="form.company" required placeholder="Enterprise Name" class="w-full bg-obsidian border border-bordercolor p-3 text-xs text-white placeholder-zinc-700 focus:outline-none focus:border-zinc-500">
+                            <input type="text" x-model="form.company" required placeholder="Enterprise Name" class="w-full bg-obsidian border border-bordercolor p-3 text-xs text-white placeholder-zinc-700 focus:outline-none focus:border-indigo-500">
                         </div>
                         <div>
                             <label class="block text-[9px] tracking-[0.2em] text-zinc-400 uppercase mb-2">Operating Scale</label>
-                            <select x-model="form.scale" class="w-full bg-obsidian border border-bordercolor p-3 text-xs text-zinc-300 focus:outline-none focus:border-zinc-500">
+                            <select x-model="form.scale" class="w-full bg-obsidian border border-bordercolor p-3 text-xs text-zinc-300 focus:outline-none focus:border-indigo-500">
                                 <option value="$100,000 - $500,000">$100,000 - $500,000</option>
                                 <option value="$500,000 - $1M">$500,000 - $1M</option>
                                 <option value="$1M - $5M">$1M - $5M</option>
@@ -115,14 +132,14 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-[9px] tracking-[0.2em] text-zinc-400 uppercase mb-2">Email Address</label>
-                                <input type="email" x-model="form.email" required placeholder="executive@enterprise.com" class="w-full bg-obsidian border border-bordercolor p-3 text-xs text-white placeholder-zinc-700 focus:outline-none focus:border-zinc-500">
+                                <input type="email" x-model="form.email" required placeholder="executive@enterprise.com" class="w-full bg-obsidian border border-bordercolor p-3 text-xs text-white placeholder-zinc-700 focus:outline-none focus:border-indigo-500">
                             </div>
                             <div>
                                 <label class="block text-[9px] tracking-[0.2em] text-zinc-400 uppercase mb-2">Direct Phone Number</label>
-                                <input type="text" x-model="form.phone" required placeholder="+1 (...)" class="w-full bg-obsidian border border-bordercolor p-3 text-xs text-white placeholder-zinc-700 focus:outline-none focus:border-zinc-500">
+                                <input type="text" x-model="form.phone" required placeholder="+1 (...)" class="w-full bg-obsidian border border-bordercolor p-3 text-xs text-white placeholder-zinc-700 focus:outline-none focus:border-indigo-500">
                             </div>
                         </div>
-                        <button type="submit" class="w-full bg-white text-black font-medium text-[11px] py-3.5 tracking-[0.2em] uppercase hover:bg-zinc-200 transition-colors mt-4">
+                        <button type="submit" class="w-full bg-indigo-950 border border-indigo-500/40 text-indigo-100 font-medium text-[11px] py-3.5 tracking-[0.2em] uppercase hover:bg-indigo-900 transition-colors mt-4">
                             Transmit Dossier
                         </button>
                     </form>
@@ -141,7 +158,7 @@
     <div x-show="isAdmin" class="max-w-6xl mx-auto px-6 py-12 w-full space-y-8" x-cloak>
         <div class="flex items-center justify-between border-b border-bordercolor pb-6">
             <div>
-                <span class="text-[9px] tracking-[0.25em] text-zinc-500 font-mono">RESTRICTED TERMINAL</span>
+                <span class="text-[9px] tracking-[0.25em] text-indigo-400 font-mono">RESTRICTED TERMINAL</span>
                 <h2 class="text-lg font-medium text-white tracking-tight mt-1">NURI CO. // Executive Intake Control Panel</h2>
             </div>
             <button @click="window.location.hash = ''" class="text-[11px] text-zinc-400 hover:text-white uppercase tracking-wider border border-bordercolor px-4 py-2 bg-surface">Exit Admin</button>
@@ -175,7 +192,7 @@
                     </thead>
                     <tbody class="divide-y divide-bordercolor font-mono text-xs">
                         <template x-for="app in applications" :key="app.id">
-                            <tr @click="selectedApp = app" class="hover:bg-zinc-900/60 cursor-pointer transition-colors" :class="{'bg-zinc-900/40': selectedApp?.id === app.id}">
+                            <tr @click="selectedApp = app" class="hover:bg-indigo-950/20 cursor-pointer transition-colors" :class="{'bg-indigo-950/30 border-l-2 border-indigo-500': selectedApp?.id === app.id}">
                                 <td class="p-4 text-white font-medium" x-text="app.name"></td>
                                 <td class="p-4 text-zinc-300" x-text="app.company"></td>
                                 <td class="p-4 text-zinc-400" x-text="app.scale"></td>
@@ -195,7 +212,7 @@
             <!-- Detail Inspector Drawer -->
             <div class="border border-bordercolor bg-surface p-6 space-y-6">
                 <div class="border-b border-bordercolor pb-4">
-                    <span class="text-[9px] tracking-[0.2em] text-zinc-500 font-mono">DOSSIER INSPECTOR</span>
+                    <span class="text-[9px] tracking-[0.2em] text-indigo-400 font-mono">DOSSIER INSPECTOR</span>
                     <h3 class="text-sm font-medium text-white tracking-wide mt-1" x-text="selectedApp ? selectedApp.name : 'Select a Record'"></h3>
                 </div>
 
@@ -211,11 +228,11 @@
                         </div>
                         <div>
                             <span class="text-[9px] text-zinc-500 uppercase tracking-widest block mb-1">Email Address</span>
-                            <a :href="'mailto:' + selectedApp.email" class="text-white underline hover:text-zinc-400" x-text="selectedApp.email"></a>
+                            <a :href="'mailto:' + selectedApp.email" class="text-white underline hover:text-indigo-300" x-text="selectedApp.email"></a>
                         </div>
                         <div>
                             <span class="text-[9px] text-zinc-500 uppercase tracking-widest block mb-1">Direct Phone</span>
-                            <a :href="'tel:' + selectedApp.phone" class="text-white underline hover:text-zinc-400" x-text="selectedApp.phone"></a>
+                            <a :href="'tel:' + selectedApp.phone" class="text-white underline hover:text-indigo-300" x-text="selectedApp.phone"></a>
                         </div>
                         <div>
                             <span class="text-[9px] text-zinc-500 uppercase tracking-widest block mb-1">Submission Timestamp</span>
@@ -223,7 +240,7 @@
                         </div>
 
                         <div class="pt-4 border-t border-bordercolor flex gap-3">
-                            <button @click="updateStatus(selectedApp.id, 'Approved')" class="flex-1 bg-white text-black font-medium text-[10px] py-2.5 uppercase tracking-wider hover:bg-zinc-200">Clear</button>
+                            <button @click="updateStatus(selectedApp.id, 'Approved')" class="flex-1 bg-indigo-950 border border-indigo-500/40 text-indigo-100 font-medium text-[10px] py-2.5 uppercase tracking-wider hover:bg-indigo-900">Clear</button>
                             <button @click="updateStatus(selectedApp.id, 'Declined')" class="flex-1 border border-zinc-700 text-zinc-300 font-medium text-[10px] py-2.5 uppercase tracking-wider hover:border-rose-500 hover:text-rose-400">Archive</button>
                         </div>
                     </div>
@@ -255,6 +272,7 @@
                     { id: 2, date: '2026-09-06', name: 'M. Vance', company: 'Apex Logistics', scale: '$20M+', email: 'm.vance@apexlogistics.io', phone: '+1 (555) 847-1902', status: 'Approved' }
                 ],
                 init() {
+                    this.isAdmin = window.location.hash === '#admin';
                     window.addEventListener('hashchange', () => {
                         this.isAdmin = window.location.hash === '#admin';
                     });
